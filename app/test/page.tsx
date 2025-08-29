@@ -1,10 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import fetchWithAuth from "@/lib/api";
 
 export default function Main() {
   function handleClick() {
-    fetch("/api/test", {
+    fetchWithAuth("/api/test", {
       method: "post",
     });
   }
