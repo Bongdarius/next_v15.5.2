@@ -1,5 +1,12 @@
 import { deleteCookie } from "cookies-next";
 
+/**
+ *
+ * @param url
+ * @param options
+ * @returns
+ * @deprecated
+ */
 // A wrapper for the native fetch function to handle token refreshing.
 async function fetchWithAuth(
   url: string,
