@@ -5,7 +5,7 @@ import fetchWithAuth from "@/lib/api";
 
 export default function Main() {
   function handleClick() {
-    fetchWithAuth("/api/test", {
+    fetch("/api/test", {
       method: "post",
     });
   }
