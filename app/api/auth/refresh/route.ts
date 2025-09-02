@@ -32,7 +32,6 @@ export async function POST(request: NextRequest) {
       status: 200,
       headers,
     });
-
   } catch (error) {
     console.error('REFRESH_TOKEN_ERROR', error);
     return new NextResponse('Internal Server Error', { status: 500 });

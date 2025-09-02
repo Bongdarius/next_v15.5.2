@@ -6,9 +6,7 @@
       "request": "launch",
       "name": "Next Dev",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": [
-        "dev"
-      ],
+      "runtimeArgs": ["dev"],
       "console": "integratedTerminal",
       "restart": true,
       "cwd": "${workspaceFolder}"

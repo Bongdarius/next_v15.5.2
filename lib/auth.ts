@@ -1,4 +1,3 @@
-
 import jwt from 'jsonwebtoken';
 import prisma from '@/lib/prisma';
 
@@ -31,11 +30,10 @@ export async function refreshAccessToken(refreshToken: string): Promise<string |
     const newAccessToken = jwt.sign(
       { id: user.id, username: user.username },
       process.env.ACCESS_TOKEN_SECRET!, // middleware와 동일한 ACCESS_TOKEN_SECRET 사용
-      { expiresIn: ACCESS_TOKEN_EXPIRES_IN }
+      { expiresIn: ACCESS_TOKEN_EXPIRES_IN },
     );
 
     return newAccessToken;
-
   } catch (error) {
     // 토큰 검증 실패(만료, 서명 불일치 등)
     console.error('Error refreshing access token:', error);
