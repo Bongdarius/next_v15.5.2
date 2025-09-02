@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -9,19 +9,18 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+} from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { useSearchParams } from 'next/navigation';
 
 export default function QueryPage() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const searchParams = useSearchParams();
 
   useEffect(() => {
     try {
-      const rawQuery = searchParams.get("data") || "";
+      const rawQuery = searchParams.get('data') || '';
 
       // 1. atob로 Base64 → 문자 코드 문자열
       const binaryString = atob(rawQuery);
@@ -38,7 +37,7 @@ export default function QueryPage() {
 
       setQuery(json.data);
     } catch (error) {
-      setQuery("");
+      setQuery('');
     }
   }, []);
 
@@ -48,16 +47,16 @@ export default function QueryPage() {
     };
 
     const encodedValue = btoa(
-      String.fromCharCode(...new TextEncoder().encode(JSON.stringify(json)))
+      String.fromCharCode(...new TextEncoder().encode(JSON.stringify(json))),
     );
 
-    window.history.pushState({ page: "query" }, "", `?data=${encodedValue}`);
+    window.history.pushState({ page: 'query' }, '', `?data=${encodedValue}`);
   }, [query]);
 
   const handleSubmit = () => {
     // 입력된 쿼리 값을 콘솔에 출력하거나 API로 전송할 수 있습니다.
-    console.log("Submitted Query:", query);
-    alert("Query submitted! Check the console.");
+    console.log('Submitted Query:', query);
+    alert('Query submitted! Check the console.');
   };
 
   return (
